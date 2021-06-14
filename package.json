@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/satomiichii/ttp_takehome#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "chalk": "^4.1.1",
     "express": "^4.17.1",
     "react": "^17.0.2",
