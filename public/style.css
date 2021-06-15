@@ -4,7 +4,6 @@ body {
   display: flex;
   justify-content: center;
   font-family: 'Mukta', sans-serif;
-  /* overflow: hidden; */
 }
 
 .contents-container {
@@ -39,7 +38,6 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 7px;
-  /* box-shadow: 1px 1px 10px rgb(143, 143, 143); */
 }
 
 @media (max-width: 375px) {
