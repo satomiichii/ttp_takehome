@@ -27,7 +27,7 @@ body {
 .list-container {
   display: flex;
   flex-wrap: wrap;
-  height: 83%;
+  height: 82%;
   overflow: scroll;
   padding-left: 3%;
 }
