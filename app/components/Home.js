@@ -5,7 +5,6 @@ import data from '../../public/nyc_ttp_pins.json';
 
 export const Home = (props) => {
   const [pins, setPins] = useState(data);
-  console.log(pins);
   return (
     <div className="contents-container">
       <nav className="logo">
