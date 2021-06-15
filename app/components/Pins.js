@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faThumbtack } from '@fortawesome/free-solid-svg-icons';
 
 export const Pins = (props) => {
   const [listItem, setListItem] = useState([]);
@@ -16,7 +18,6 @@ export const Pins = (props) => {
         }
         observer.current = new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting) {
-            console.log(listItem.length);
             if (page >= maxPage) {
               setPage(0);
             } else {
@@ -27,7 +28,6 @@ export const Pins = (props) => {
         if (elm) {
           observer.current.observe(elm);
         }
-        console.log('Last');
       }
     },
     [loading, page, maxPage]
@@ -35,7 +35,6 @@ export const Pins = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    console.log('page', page);
     const start = page * perPage;
     const end = start + perPage;
     const newItems = props.pins.slice(start, end);
@@ -46,16 +45,28 @@ export const Pins = (props) => {
   }, [page]);
 
   return (
-    <div>
+    <div className="list-container">
       {listItem.map((pin, idx) => {
         return (
           (idx === listItem.length - 1 && (
-            <div ref={lastItemRef} key={pin.board.id}>
+            <div ref={lastItemRef} key={pin.board.id} className="item">
               <img src={pin.images['136x136'].url} />
+              <div className="like-container">
+                <div className="like">
+                  <FontAwesomeIcon icon={faHeart} />
+                  <div className="num">{pin.like_count}</div>
+                </div>
+              </div>
             </div>
           )) || (
-            <div key={pin.board.id}>
+            <div key={pin.board.id} className="item">
               <img src={pin.images['136x136'].url} />
+              <div className="like-container">
+                <div className="like">
+                  <FontAwesomeIcon icon={faHeart} />
+                  <div className="num">{pin.like_count}</div>
+                </div>
+              </div>
             </div>
           )
         );
